@@ -92,6 +92,17 @@ contains(names, 'Colt', function(result){
 // the callback function with the array of unique names.
 
     //Code Here
+    function uniq(names, cb) {
+      var temp = names.sort();
+      var newarr = [];
+      for (var i = 0; i < temp.length; i++) {
+        if(temp[i] !== temp[i+1]) {
+          newarr.push(temp[i]);
+          }
+        }
+        cb(newarr);
+      };
+
 
 
 uniq(names, function(uniqArr){
@@ -103,6 +114,16 @@ uniq(names, function(uniqArr){
 // function to return the indices and item.
 
     //Code Here
+    function each(names, cb) {
+      for(var i = 0; i < names.length; i++) {
+        var indice = names.indexOf(i);
+        var item = names[i];
+        cb(item, indice);
+      }
+
+    };
+
+
 
 each(names, function(item, indice){
   console.log('The item in the ' + indice + ' position is ' + item)
@@ -114,8 +135,14 @@ each(names, function(item, indice){
 // and returns that user.
 
  //Code Here
+ function getUserById(users, id, cb) {
+   for (var i = 0; i < users.length; i++) {
+     if(id === users[i].id) {
+       cb(users[i]);
+     }
+   }
 
-
+ };
 
 var users = [
   {
